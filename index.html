@@ -14,25 +14,38 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="wordmark" href="#top" aria-label="Visual Analysis Studio, back to top">
-        <span class="wordmark-mark" aria-hidden="true">L/T/W</span>
-        <span>Visual Analysis Studio</span>
+      <a class="wordmark" href="#top" aria-label="Look, Think, Write Visual Analysis Studio, back to top">
+        <span class="wordmark-mark wordmark-long" aria-hidden="true">LOOK / THINK / WRITE</span>
+        <span class="wordmark-mark wordmark-short" aria-hidden="true">L/T/W</span>
+        <span class="wordmark-name">Visual Analysis Studio</span>
       </a>
-      <button class="button button-secondary header-action" id="new-artwork-top" type="button">New artwork</button>
+      <div class="header-actions">
+        <button class="button button-quiet view-artwork" type="button" disabled>
+          <span class="desktop-label">View artwork</span><span class="mobile-label">View</span>
+        </button>
+        <button class="button button-secondary" id="new-artwork-top" type="button">
+          <span class="desktop-label">New artwork</span><span class="mobile-label">New</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="workspace">
     <section class="intro" id="top" aria-labelledby="page-title">
-      <p class="eyebrow">A guided looking exercise</p>
-      <h1 id="page-title">Look closely. Build your interpretation.</h1>
+      <div>
+        <p class="eyebrow">A guided looking exercise</p>
+        <h1 id="page-title">Look closely. Build your interpretation.</h1>
+      </div>
       <p class="lede">You do not need to know the artist, style, or time period. Start with what you can see, then move from evidence to meaning.</p>
-      <ol class="progress-list" aria-label="Four-step analysis process">
-        <li><a href="#step-1"><span aria-hidden="true">1</span> Describe</a></li>
-        <li><a href="#step-2"><span aria-hidden="true">2</span> Analyze</a></li>
-        <li><a href="#step-3"><span aria-hidden="true">3</span> Interpret</a></li>
-        <li><a href="#step-4"><span aria-hidden="true">4</span> Evaluate</a></li>
-      </ol>
+      <div class="progress-wrap">
+        <p class="progress-summary" id="progress-summary" aria-live="polite">0 of 4 responses started</p>
+        <ol class="progress-list" aria-label="Four-step analysis process">
+          <li><a href="#step-1"><span class="progress-number" aria-hidden="true">1</span><span>Describe</span><small id="status-1">Not started</small></a></li>
+          <li><a href="#step-2"><span class="progress-number" aria-hidden="true">2</span><span>Analyze</span><small id="status-2">Not started</small></a></li>
+          <li><a href="#step-3"><span class="progress-number" aria-hidden="true">3</span><span>Interpret</span><small id="status-3">Not started</small></a></li>
+          <li><a href="#step-4"><span class="progress-number" aria-hidden="true">4</span><span>Evaluate</span><small id="status-4">Not started</small></a></li>
+        </ol>
+      </div>
     </section>
 
     <section class="artwork-shell" aria-labelledby="artwork-heading">
@@ -56,10 +69,15 @@
           <div><dt>Artist</dt><dd id="artwork-artist">—</dd></div>
           <div><dt>Date</dt><dd id="artwork-date">—</dd></div>
           <div><dt>Medium</dt><dd id="artwork-medium">—</dd></div>
+          <div><dt>Dimensions</dt><dd id="artwork-dimensions">—</dd></div>
           <div><dt>Collection</dt><dd id="artwork-source">—</dd></div>
         </dl>
-        <button class="button button-primary" id="new-artwork" type="button">Show me a new artwork</button>
-        <p class="reset-note">Your writing will stay here until you reload this page.</p>
+        <div class="artwork-actions">
+          <button class="button button-primary" id="new-artwork" type="button">Show me a new artwork</button>
+          <button class="button button-on-dark view-artwork" type="button" disabled>View larger</button>
+        </div>
+        <a class="museum-link" id="museum-link" href="#" target="_blank" rel="noopener" hidden>View museum record <span aria-hidden="true">↗</span></a>
+        <p class="reset-note">Your writing will stay here until you leave or reload this page.</p>
       </div>
     </section>
 
@@ -71,15 +89,34 @@
       <p>Strong analysis connects an idea to visible evidence. Specific observations are more useful than art-history vocabulary.</p>
     </aside>
 
+    <details class="glossary" id="glossary">
+      <summary>
+        <span><span class="eyebrow">Optional help</span><strong>Art words explained</strong></span>
+        <span class="summary-action" aria-hidden="true">Open +</span>
+      </summary>
+      <dl class="glossary-grid">
+        <div><dt>Perspective</dt><dd>A way to make flat images appear to have depth.</dd></div>
+        <div><dt>Horizon line</dt><dd>The viewer’s eye level within an image.</dd></div>
+        <div><dt>Vanishing point</dt><dd>The place where receding parallel lines seem to meet.</dd></div>
+        <div><dt>Implied texture</dt><dd>A surface painted or drawn to look touchable.</dd></div>
+        <div><dt>Unity</dt><dd>The sense that the parts belong together.</dd></div>
+        <div><dt>Variety</dt><dd>Differences that create interest or contrast.</dd></div>
+        <div><dt>Scale</dt><dd>The size of something compared with a person or familiar object.</dd></div>
+        <div><dt>Proportion</dt><dd>How the sizes of parts relate to one another.</dd></div>
+        <div><dt>Balance</dt><dd>How visual weight is distributed across the work.</dd></div>
+        <div><dt>Symmetrical</dt><dd>Balanced with similar parts on both sides.</dd></div>
+        <div><dt>Asymmetrical</dt><dd>Balanced with different parts on each side.</dd></div>
+        <div><dt>Emphasis</dt><dd>The part that attracts your attention first.</dd></div>
+        <div><dt>Movement</dt><dd>The path your eyes follow through the work.</dd></div>
+        <div><dt>Rhythm</dt><dd>Repetition that creates a visual beat or pattern.</dd></div>
+      </dl>
+    </details>
+
     <section class="steps" aria-label="Formal analysis response form">
       <article class="step" id="step-1">
         <div class="step-heading">
           <span class="step-number" aria-hidden="true">01</span>
-          <div>
-            <p class="step-kicker">Begin with evidence</p>
-            <h2>Step 1: Description — “What do you see?”</h2>
-            <p class="step-summary">Naming what's physically there.</p>
-          </div>
+          <div><p class="step-kicker">Begin with evidence</p><h2>Step 1: Description — “What do you see?”</h2><p class="step-summary">Naming what's physically there.</p></div>
         </div>
         <div class="step-grid">
           <details class="questions" open>
@@ -106,11 +143,7 @@
       <article class="step" id="step-2">
         <div class="step-heading">
           <span class="step-number" aria-hidden="true">02</span>
-          <div>
-            <p class="step-kicker">Find relationships</p>
-            <h2>Step 2: Analysis — “How is it arranged?”</h2>
-            <p class="step-summary">Explaining how the parts relate.</p>
-          </div>
+          <div><p class="step-kicker">Find relationships</p><h2>Step 2: Analysis — “How is it arranged?”</h2><p class="step-summary">Explaining how the parts relate.</p></div>
         </div>
         <div class="step-grid">
           <details class="questions">
@@ -135,11 +168,7 @@
       <article class="step" id="step-3">
         <div class="step-heading">
           <span class="step-number" aria-hidden="true">03</span>
-          <div>
-            <p class="step-kicker">Make a claim</p>
-            <h2>Step 3: Interpretation — “What might it say?”</h2>
-            <p class="step-summary">Proposing what it might mean.</p>
-          </div>
+          <div><p class="step-kicker">Make a claim</p><h2>Step 3: Interpretation — “What might it say?”</h2><p class="step-summary">Proposing what it might mean.</p></div>
         </div>
         <div class="step-grid">
           <details class="questions">
@@ -162,11 +191,7 @@
       <article class="step" id="step-4">
         <div class="step-heading">
           <span class="step-number" aria-hidden="true">04</span>
-          <div>
-            <p class="step-kicker">Take a position</p>
-            <h2>Step 4: Evaluation — “Is it effective? What do I think?”</h2>
-            <p class="step-summary">Judging its effect and value.</p>
-          </div>
+          <div><p class="step-kicker">Take a position</p><h2>Step 4: Evaluation — “Is it effective? What do I think?”</h2><p class="step-summary">Judging its effect and value.</p></div>
         </div>
         <div class="step-grid">
           <details class="questions">
@@ -190,18 +215,34 @@
       <div>
         <p class="eyebrow">Finish your session</p>
         <h2 id="finish-heading">Take your writing with you.</h2>
-        <p>Copy all four labeled responses as plain text, then paste them into your course assignment or notes.</p>
+        <p>Copy your four labeled responses or download them as a plain-text file.</p>
       </div>
       <div class="finish-actions">
         <button class="button button-primary" id="copy-responses" type="button">Copy my responses</button>
-        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        <button class="button button-on-dark" id="download-responses" type="button">Download text file</button>
+        <p class="copy-status" id="export-status" role="status" aria-live="polite"></p>
       </div>
     </section>
   </main>
 
+  <dialog class="artwork-dialog" id="artwork-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-header">
+      <div><p class="eyebrow">Artwork reference</p><h2 id="dialog-title">View artwork</h2></div>
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close artwork viewer">×</button>
+    </div>
+    <div class="dialog-body">
+      <div class="dialog-stage"><img id="dialog-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt=""></div>
+      <div class="dialog-info">
+        <h3 id="dialog-artwork-title">Artwork title</h3>
+        <p id="dialog-artwork-details"></p>
+        <a id="dialog-museum-link" href="#" target="_blank" rel="noopener">View museum record <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </dialog>
+
   <footer>
     <p>Public-domain artwork data from the Art Institute of Chicago and The Metropolitan Museum of Art.</p>
-    <p>No account. No tracking. Responses remain only in this browser tab.</p>
+    <p>We do not use accounts, analytics, or advertising. Artwork and fonts load from external providers.</p>
   </footer>
 </body>
 </html>

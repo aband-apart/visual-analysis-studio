@@ -1,40 +1,56 @@
-# Visual Analysis Studio
+# Visual Analysis Studio — Version 2
 
 A single-session, beginner-friendly formal-analysis activity for community college Visual Arts students. The site uses public-domain collection data from the Art Institute of Chicago and The Metropolitan Museum of Art.
 
-## Features
+## Version 2 improvements
 
-- Random artwork on load with automatic museum API fallback
-- Image, title, artist, date, medium, and collection metadata
-- Fixed four-step formal-analysis framework
-- Beginner prompts and progressive disclosure
-- Four labeled response fields
-- Plain-text clipboard export
-- No login, tracking, database, or saved history
-- Responsive layout, semantic HTML, visible keyboard focus, reduced-motion and forced-color support
+- Persistent **View artwork** control and accessible large-image dialog
+- Visible **Look / Think / Write** identity on desktop
+- Artwork dimensions and direct museum-record links
+- Optional beginner glossary for formal-analysis terms
+- Real response progress using “Started” and “Not started” text
+- More compact mobile introduction
+- Warning before leaving when responses contain writing
+- Plain-text download in addition to clipboard export
+- Faster parallel Met record checks and greater Art Institute result variety
+- Clearer privacy statement about external museum and font requests
+
+## Core behavior
+
+- No login, account, analytics, advertising, database, or saved response history
+- Everything resets after a confirmed reload or exit
+- A random museum source is tried first; the other is used automatically on failure
+- Exact four-step formal-analysis framework is preserved
 
 ## Run locally
 
-Because museum data is loaded with `fetch`, serve the folder over HTTP instead of opening `index.html` directly:
+Serve the folder over HTTP so museum `fetch` requests work normally:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Visit `http://localhost:8000`.
 
-## Recommended free hosting: GitHub Pages
+## Update an existing GitHub Pages site
 
-GitHub Pages is the best fit because this project is a dependency-free static site and does not need a server or environment variables.
+Upload these Version 2 files to the root of the existing repository and allow GitHub to replace files with the same names:
 
-1. Create a GitHub repository.
-2. Add `index.html`, `styles.css`, `app.js`, and this README.
-3. In the repository, open **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Choose the `main` branch and `/ (root)`, then save.
+- `index.html`
+- `styles.css`
+- `app.js`
+- `README.md`
 
-The published URL will use the format `https://YOUR-USERNAME.github.io/REPOSITORY-NAME/`.
+Do not upload the ZIP itself. GitHub Pages will redeploy automatically after the commit.
+
+## New GitHub Pages site
+
+1. Create a public GitHub repository.
+2. Upload the files above to the repository root.
+3. Open **Settings → Pages**.
+4. Choose **Deploy from a branch**, `main`, and `/ (root)`.
+5. Save and wait for the published URL.
 
 ## Accessibility target
 
-The interface is designed toward WCAG 2.2 AA: semantic heading order, native interactive elements, descriptive artwork alt text, keyboard access, large controls, high-contrast focus styles, responsive reflow, and non-color status text. Automated and manual checks are still recommended after any content or code change.
+The interface is designed toward WCAG 2.2 AA using semantic headings, native controls, a native dialog, descriptive artwork alt text, keyboard operation, visible focus, large targets, responsive reflow, reduced-motion support, forced-color support, and text—not color alone—for progress and status.

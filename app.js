@@ -27,7 +27,11 @@ const els = {
   dialogImage: document.querySelector("#dialog-image"),
   dialogTitle: document.querySelector("#dialog-artwork-title"),
   dialogDetails: document.querySelector("#dialog-artwork-details"),
-  dialogLink: document.querySelector("#dialog-museum-link")
+  dialogLink: document.querySelector("#dialog-museum-link"),
+  referenceCard: document.querySelector(".reference-card"),
+  referenceImage: document.querySelector("#reference-image"),
+  referenceTitle: document.querySelector("#reference-title"),
+  referenceArtist: document.querySelector("#reference-artist")
 };
 
 let currentArtwork = null;
@@ -145,6 +149,7 @@ function setLoading(isLoading) {
     button.setAttribute("aria-busy", String(isLoading));
   });
   els.viewButtons.forEach(button => { button.disabled = isLoading || !currentArtwork; });
+  els.referenceCard.setAttribute("aria-busy", String(isLoading));
 }
 
 function updateDialog(artwork) {
@@ -171,6 +176,12 @@ function displayArtwork(artwork) {
   els.loading.hidden = true;
   els.error.hidden = true;
   els.viewButtons.forEach(button => { button.disabled = false; });
+  els.referenceImage.src = artwork.imageUrl;
+  els.referenceImage.alt = "";
+  els.referenceImage.hidden = false;
+  els.referenceTitle.textContent = artwork.title;
+  els.referenceArtist.textContent = artwork.artist;
+  els.referenceCard.setAttribute("aria-busy", "false");
   updateDialog(artwork);
   document.title = `${artwork.title} — Visual Analysis Studio`;
 }
@@ -184,6 +195,10 @@ function displayError() {
   [els.artist, els.date, els.medium, els.dimensions, els.source].forEach(element => { element.textContent = "—"; });
   els.museumLink.hidden = true;
   els.viewButtons.forEach(button => { button.disabled = true; });
+  els.referenceImage.hidden = true;
+  els.referenceTitle.textContent = "Artwork unavailable";
+  els.referenceArtist.textContent = "Try loading another artwork.";
+  els.referenceCard.setAttribute("aria-busy", "false");
 }
 
 async function loadArtwork() {

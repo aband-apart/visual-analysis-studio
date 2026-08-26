@@ -102,6 +102,16 @@ h1 { max-width: 850px; margin: 0; font-size: clamp(3rem, 7vw, 6.5rem); font-weig
 .glossary-grid dt { font-weight: 700; }
 .glossary-grid dd { margin: .25rem 0 0; color: var(--muted); }
 
+.analysis-workspace { display: block; }
+.reference-rail { display: none; }
+.reference-card { padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); }
+.reference-card .eyebrow { margin-bottom: .65rem; color: var(--accent-dark); }
+.reference-stage { min-height: 260px; height: min(44vh, 430px); display: grid; place-items: center; padding: .75rem; border-radius: var(--radius-sm); background: var(--stage); overflow: hidden; }
+.reference-stage img { width: 100%; height: 100%; object-fit: contain; }
+.reference-copy { padding: 1rem .15rem .1rem; }
+.reference-title { margin: 0; font: 600 clamp(1.45rem, 2.25vw, 2rem)/1.04 var(--font-display); letter-spacing: -.02em; overflow-wrap: anywhere; text-wrap: pretty; }
+.reference-artist { margin: .45rem 0 1rem; color: var(--muted); }
+
 .steps { border-top: 1px solid var(--ink); }
 .step { padding: clamp(3rem, 7vw, 6rem) 0; border-bottom: 1px solid var(--line); }
 .step-heading { display: grid; grid-template-columns: minmax(70px, .3fr) 2fr; gap: 1.5rem; margin-bottom: 2.5rem; }
@@ -183,6 +193,14 @@ footer p { margin: .3rem 0; }
   .dialog-body { min-height: 0; }
   .dialog-stage { min-height: 350px; padding: .75rem; }
   .dialog-stage img { height: min(52vh, 470px); }
+}
+@media (min-width: 1200px) and (min-height: 700px) {
+  .analysis-workspace { display: grid; grid-template-columns: minmax(280px, .58fr) minmax(0, 1.42fr); gap: clamp(2.5rem, 4vw, 4.5rem); align-items: start; }
+  .reference-rail { display: block; align-self: stretch; }
+  .reference-card { position: sticky; top: 5.5rem; max-height: calc(100vh - 6.5rem); overflow: auto; scrollbar-gutter: stable; }
+  .analysis-workspace .step-heading { grid-template-columns: 52px 1fr; }
+  .analysis-workspace .step-heading h2 { font-size: clamp(2.2rem, 3.2vw, 3.6rem); }
+  .analysis-workspace .step-grid { margin-left: 0; grid-template-columns: minmax(200px, .8fr) minmax(300px, 1.25fr); gap: clamp(1.5rem, 2.5vw, 2.25rem); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

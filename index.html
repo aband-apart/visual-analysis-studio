@@ -6,8 +6,8 @@
   <meta name="description" content="A guided, beginner-friendly workspace for practicing formal analysis with public-domain museum artworks.">
   <meta name="theme-color" content="#f5f0e7">
   <title>Look / Think / Write — Visual Analysis Studio</title>
-  <link rel="stylesheet" href="styles.css?v=2.1.1">
-  <script src="app.js?v=2.1.0" defer></script>
+  <link rel="stylesheet" href="styles.css?v=2.2.0">
+  <script src="app.js?v=2.2.0" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#workspace">Skip to the activity</a>
@@ -112,7 +112,22 @@
       </dl>
     </details>
 
-    <section class="steps" aria-label="Formal analysis response form">
+    <div class="analysis-workspace">
+      <aside class="reference-rail" aria-labelledby="reference-label">
+        <div class="reference-card" aria-busy="true">
+          <p class="eyebrow" id="reference-label">Artwork reference</p>
+          <div class="reference-stage">
+            <img id="reference-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
+          </div>
+          <div class="reference-copy">
+            <p class="reference-title" id="reference-title">Loading artwork…</p>
+            <p class="reference-artist" id="reference-artist">Please wait</p>
+            <button class="button button-secondary view-artwork" type="button" disabled>View larger</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="steps" aria-label="Formal analysis response form">
       <article class="step" id="step-1">
         <div class="step-heading">
           <span class="step-number" aria-hidden="true">01</span>
@@ -209,7 +224,8 @@
           </div>
         </div>
       </article>
-    </section>
+      </section>
+    </div>
 
     <section class="finish" aria-labelledby="finish-heading">
       <div>
